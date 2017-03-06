@@ -1,0 +1,41 @@
+{
+  "name":"alexandervas/slack-bot-listener",
+  "description": "Simple, easy to use, PHP package for listen events in Slack.",
+  "minimum-stability": "stable",
+  "homepage": "https://github.com/alexandervas/slack-bot-listener",
+  "keywords": [
+    "slack",
+    "slackbot",
+    "php-slackbot",
+    "slack-bot-listener"
+  ],
+  "license" : "MIT",
+  "type": "package",
+  "authors":{
+    "name" : "Alex Vasyutin",
+    "homepage": "https://github.com/alexandervas",
+    "email" : "vasyutin4@gmail.com"
+  },
+
+  "require":{
+    "php": ">=5.3"
+  },
+
+  "require-dev":{
+    "phpunit/phpunit":"3.7.*"
+  },
+
+  "autoload":{
+    "psr-4":{
+      "alexandervas\\slackbotlistener\\":"src/"
+    }
+  },
+
+  "autoload-dev":{
+    "psr-4":{
+      "alexandervas\\slackbotlistener\\tests":"tests/"
+    }
+  }
+
+
+}
