@@ -19,8 +19,13 @@ class CurlRequest implements RequestHandler{
      */
     public function call(SlackBotRequest $request)
     {
-        $curl = curl_init();
-        curl_setopt(),
+        $ch = curl_init();
+            $options = curl_setopt_array(
+                CURLOPT_POST,true
+            );
+
+        curl_exec($ch);
+        curl_close();
 
     }
 
