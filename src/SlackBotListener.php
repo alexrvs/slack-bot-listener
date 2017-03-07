@@ -2,6 +2,7 @@
 namespace alexandervas\slackbotlistener;
 
 use alexandervas\slackbotlistener\Handlers\CurlRequest;
+
 /**
  * Class SlackBotListener
  * @package alexandervas\slackbotlistener
@@ -24,10 +25,15 @@ class SlackBotListener{
     private $handler;
 
     /**
-     * @var
+     * @var SlackBotRequest $listener
      */
 
     private $listener;
+
+    /**
+     * @var string $text
+     */
+    private $text;
 
     /**
      * SlackBotListener constructor.
@@ -42,10 +48,26 @@ class SlackBotListener{
         $this->listener = new SlackBotRequest();
     }
 
+    /**
+     *
+     */
     public function send(){
 
+        $this->handler->call($this->listener);
     }
 
+    /**
+     * @param $text
+     */
+
+    public function text($text){
+        $this->text = $text;
+    }
+
+    public function attachment(){
+
+
+    }
 
 
 

@@ -1,6 +1,6 @@
 Slack Bot Listener
 ============
-Import Excel
+Bot Send Message to Slack
 
 Installation
 ------------
