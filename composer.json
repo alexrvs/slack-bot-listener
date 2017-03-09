@@ -2,6 +2,7 @@
   "name":"alexandervas/slack-bot-listener",
   "description": "Simple, easy to use, PHP package for listen events in Slack.",
   "homepage": "https://github.com/alexandervas/slack-bot-listener",
+  "minimum-stability": "dev",
   "keywords": [
     "slack",
     "slackbot",
