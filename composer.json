@@ -11,11 +11,13 @@
   ],
   "license" : "MIT",
   "type": "package",
-  "authors":{
-    "name" : "Alex Vasyutin",
-    "homepage": "https://github.com/alexandervas",
-    "email" : "vasyutin4@gmail.com"
-  },
+  "authors":[
+    {
+      "name" : "Alex Vasyutin",
+      "homepage": "https://github.com/alexandervas",
+      "email" : "vasyutin4@gmail.com"
+    }
+  ],
 
   "require":{
     "php": ">=5.3"
