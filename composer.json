@@ -10,7 +10,7 @@
     "slack-bot-listener"
   ],
   "license" : "MIT",
-  "type": "package",
+  "type": "library",
   "authors":[
     {
       "name" : "Alex Vasyutin",
