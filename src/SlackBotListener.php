@@ -1,6 +1,7 @@
 <?php
 namespace alexandervas\slackbotlistener;
 
+use alexandervas\slackbotlistener\Exceptions\SlackRequestExceptions;
 use alexandervas\slackbotlistener\Handlers\CurlRequest;
 
 /**
@@ -36,6 +37,11 @@ class SlackBotListener{
     private $text;
 
     /**
+     * @var array $attachments
+     */
+    private $attachments = [];
+
+    /**
      * SlackBotListener constructor.
      * @param string $webhook
      * @param array $options
@@ -53,7 +59,7 @@ class SlackBotListener{
      */
     public function send(){
 
-        $this->handler->call($this->listener);
+
     }
 
     /**
@@ -64,12 +70,27 @@ class SlackBotListener{
         $this->text = $text;
     }
 
-    public function attachment(){
+    /**
+     * @param Attachment $attachment
+     */
 
+    public function attachment(Attachment $attachment){
 
+        $this->attachments[] = $attachment->serialize();
     }
 
+    /**
+     * @return mixed
+     * @throws SlackRequestExceptions
+     */
 
+    public function callRequest(){
+        $result = $this->handler->call($this->listener);
+        if($result != 'ok'){
+            throw new SlackRequestExceptions('');
+        }
+        return $result;
+    }
 
 
 
