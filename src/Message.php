@@ -10,7 +10,7 @@ class Message implements Transferable{
 
     /**
      * Message constructor.
-     * @param $message
+     * @param $text
      */
     public function __construct($text)
     {
