@@ -29,7 +29,14 @@ Once the extension is installed, simply use it in your code by  :
 
 ```php
 <?php
-    $bot = new \alexandervas\slackbotlistener\SlackBotListener("https://hooks.slack.com/services/your/incoming/hook");
+require(__DIR__ . '/vendor/autoload.php');
+
+use alexandervas\slackbotlistener\SlackBotListener;
+
+    $webhook = "https://hooks.slack.com/services/your/incoming/hook";
     
+    $slackbot = new SlackBotListener($webhook);
+
+    $slackbot->text('test')->send();
 	
  ?>```
