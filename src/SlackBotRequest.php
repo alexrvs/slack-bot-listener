@@ -15,9 +15,9 @@ class SlackBotRequest{
     private $webhook;
 
     /**
-     * @var string $listener
+     * @var string $message
      */
-    private $listener;
+    protected $message;
 
     /**
      * @var array $options
@@ -32,9 +32,10 @@ class SlackBotRequest{
     /**
      * SlackBotRequest constructor.
      */
-    public function __construct($webhook, $options = null)
+    public function __construct($webhook, Message $message)
     {
         $this->webhook = $webhook;
+        $this->message = $message;
     }
 
     /**

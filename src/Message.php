@@ -6,15 +6,15 @@ class Message implements Transferable{
     /**
      * @var string $message
      */
-    private $message;
+    private $text;
 
     /**
      * Message constructor.
      * @param $message
      */
-    public function __construct($message)
+    public function __construct($text)
     {
-        $this->message = $message;
+        $this->text = $text;
     }
 
     /**
@@ -22,6 +22,6 @@ class Message implements Transferable{
      */
     public function serialize()
     {
-        return serialize($this->message);
+        return serialize($this->text);
     }
 }

@@ -4,6 +4,7 @@ namespace alexandervas\slackbotlistener;
 use alexandervas\slackbotlistener\Exceptions\SlackRequestExceptions;
 use alexandervas\slackbotlistener\Handlers\CurlRequest;
 
+
 /**
  * Class SlackBotListener
  * @package alexandervas\slackbotlistener
@@ -26,12 +27,6 @@ class SlackBotListener{
     private $handler;
 
     /**
-     * @var SlackBotRequest $listener
-     */
-
-    private $listener;
-
-    /**
      * @var string $text
      */
     private $text;
@@ -51,7 +46,7 @@ class SlackBotListener{
         $this->webhook = $webhook;
         $this->options = $options;
         $this->handler = new CurlRequest();
-        $this->listener = new SlackBotRequest();
+
     }
 
     /**
@@ -59,15 +54,20 @@ class SlackBotListener{
      */
     public function send(){
 
-
+        $message = new Message($this->text);
+        $request = new SlackBotRequest($this->webhook, $message);
+        $this->callRequest($request);
+        $this->reset();
     }
 
     /**
      * @param $text
+     * @return $this
      */
 
     public function text($text){
         $this->text = $text;
+        return $this;
     }
 
     /**
@@ -84,14 +84,22 @@ class SlackBotListener{
      * @throws SlackRequestExceptions
      */
 
-    public function callRequest(){
-        $result = $this->handler->call($this->listener);
+    public function callRequest(SlackBotRequest $request){
+        $result = $this->handler->call($request);
         if($result != 'ok'){
-            throw new SlackRequestExceptions('');
+            throw new SlackRequestExceptions($result);
+        }else{
+            return $result;
         }
-        return $result;
+
     }
 
+
+    private function reset(){
+        $this->text = '';
+        $this->options = [];
+        $this->attachments = [];
+    }
 
 
 }
