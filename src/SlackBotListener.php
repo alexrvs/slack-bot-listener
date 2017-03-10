@@ -1,7 +1,6 @@
 <?php
 namespace alexandervas\slackbotlistener;
 
-use alexandervas\slackbotlistener\Exceptions\SlackBotListenerException;
 use alexandervas\slackbotlistener\Exceptions\SlackRequestException;
 use alexandervas\slackbotlistener\Handlers\CurlRequest;
 
@@ -51,15 +50,20 @@ class SlackBotListener{
     }
 
     /**
-     *
+     * @var Message $message
+     * @var SlackBotRequest $request
+     * @return void
      */
     public function send(){
 
         $message = new Message($this->text);
+        var_dump($message);exit;
         $request = new SlackBotRequest($this->webhook, $message);
         $this->callRequest($request);
         $this->reset();
+
     }
+
 
     /**
      * @param $text
@@ -69,6 +73,10 @@ class SlackBotListener{
     public function text($text){
         $this->text = $text;
         return $this;
+    }
+
+    public function toPerson($username){
+
     }
 
     /**
@@ -82,7 +90,7 @@ class SlackBotListener{
 
     /**
      * @return mixed
-     * @throws SlackRequestExceptions
+     * @throws SlackRequestException
      */
 
     public function callRequest(SlackBotRequest $request){
@@ -95,7 +103,9 @@ class SlackBotListener{
 
     }
 
-
+    /**
+     * Reset all options
+     */
     private function reset(){
         $this->text = '';
         $this->options = [];

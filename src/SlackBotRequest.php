@@ -1,7 +1,7 @@
 <?php
 namespace alexandervas\slackbotlistener;
 
-use alexandervas\slackbotlistener\Exceptions\SlackBotListenerExceptions;
+use alexandervas\slackbotlistener\Exceptions\SlackBotListenerException;
 
 /**
  * Class SlackBotRequest
@@ -31,11 +31,14 @@ class SlackBotRequest{
 
     /**
      * SlackBotRequest constructor.
+     * @param $webhook
+     * @param Message $message
      */
     public function __construct($webhook, Message $message)
     {
         $this->webhook = $webhook;
         $this->message = $message;
+        $this->setBody($message);
     }
 
     /**
@@ -68,15 +71,15 @@ class SlackBotRequest{
     }
 
     /**
-     * @param array $body
-     * @throws SlackBotListenerExceptions
+     * @param $body
+     * @throws SlackBotListenerException
      */
 
-    public function setBody(array $body){
+    public function setBody($body){
         $empty_body = ['text'=>''];
 
         if($this->body === $empty_body){
-            throw new SlackBotListenerExceptions('text attribute required, please add message!');
+            throw new SlackBotListenerException('text attribute required, please add message!');
         }
 
         $this->body = $body;
