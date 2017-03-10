@@ -41,7 +41,7 @@ class SlackBotListener{
      * @param string $webhook
      * @param array $options
      */
-    public function __construct($webhook, $options)
+    public function __construct($webhook,array $options = array())
     {
         $this->webhook = $webhook;
         $this->options = $options;
