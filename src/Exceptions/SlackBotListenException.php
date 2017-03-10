@@ -7,6 +7,6 @@ use Exception;
  * @package alexandervas\slackbotlistener\Exceptions
  */
 
-class SlackBotListenerExceptions extends Exception{
+class SlackBotListenerException extends Exception{
 
 }

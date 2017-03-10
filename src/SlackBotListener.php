@@ -1,7 +1,8 @@
 <?php
 namespace alexandervas\slackbotlistener;
 
-use alexandervas\slackbotlistener\Exceptions\SlackRequestExceptions;
+use alexandervas\slackbotlistener\Exceptions\SlackBotListenerException;
+use alexandervas\slackbotlistener\Exceptions\SlackRequestException;
 use alexandervas\slackbotlistener\Handlers\CurlRequest;
 
 
@@ -87,7 +88,7 @@ class SlackBotListener{
     public function callRequest(SlackBotRequest $request){
         $result = $this->handler->call($request);
         if($result != 'ok'){
-            throw new SlackRequestExceptions($result);
+            throw new SlackRequestException($result);
         }else{
             return $result;
         }

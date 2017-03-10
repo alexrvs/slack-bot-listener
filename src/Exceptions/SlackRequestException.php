@@ -2,7 +2,7 @@
 
 namespace alexandervas\slackbotlistener\Exceptions;
 
-class SlackRequestExceptions extends \Exception{
+class SlackRequestException extends \Exception{
 
 
 }
