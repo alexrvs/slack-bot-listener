@@ -38,7 +38,7 @@ class SlackBotRequest{
     {
         $this->webhook = $webhook;
         $this->message = $message;
-        $this->setBody($message);
+        $this->setBody($message->serialize());
     }
 
     /**
@@ -90,7 +90,7 @@ class SlackBotRequest{
      * @return string
      */
 
-    public function setPayload($body){
+    private function setPayload($body){
         return http_build_query(
             array("payload" => json_encode($body))
         );
