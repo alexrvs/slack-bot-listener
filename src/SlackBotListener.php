@@ -57,7 +57,6 @@ class SlackBotListener{
     public function send(){
 
         $message = new Message($this->text);
-        var_dump($message);exit;
         $request = new SlackBotRequest($this->webhook, $message);
         $this->callRequest($request);
         $this->reset();

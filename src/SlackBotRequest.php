@@ -91,11 +91,9 @@ class SlackBotRequest{
      */
 
     public function setPayload($body){
-
-        $payload= http_build_query(
+        return http_build_query(
             array("payload" => json_encode($body))
          );
-        return $payload;
     }
 
     /**
