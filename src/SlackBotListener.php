@@ -79,7 +79,7 @@ class SlackBotListener{
     }
 
     /**
-     *
+     * Merge attachment array to global
      */
     public function attach(){
         array_push($this->options, $this->attachments);
@@ -87,17 +87,22 @@ class SlackBotListener{
 
     /**
      * @param $username
+     * @return $this
      */
+
     public function toPerson($username){
         $this->options['username'] = $username;
+        return $this;
     }
 
     /**
      * @param Attachment $attachment
+     * @return $this
      */
     public function attachment(Attachment $attachment){
 
         $this->attachments[] = $attachment->serialize();
+        return $this;
     }
 
     /**
