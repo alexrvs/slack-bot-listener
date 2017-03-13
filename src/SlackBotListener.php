@@ -62,6 +62,9 @@ class SlackBotListener{
     public function send(){
 
         $message = new Message($this->text,$this->options);
+        if(!empty($this->attachments)){
+            array_map(array($message, 'attach'),$this->attachments);
+        }
         $request = new SlackBotRequest($this->webhook, $message);
         $this->callRequest($request);
         $this->reset();

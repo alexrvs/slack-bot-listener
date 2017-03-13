@@ -74,6 +74,26 @@ class Attachment implements Transferable{
     }
 
     /**
+     * @param $text
+     * @return $this
+     */
+
+    public function setText($text){
+
+        $this->applyOptions('text', $text);
+        return $this;
+    }
+
+    /**
+     * @param $icon
+     * @return $this
+     */
+
+    public function setFooterIcon($icon){
+        $this->applyOptions('footer_icon',$icon);
+        return $this;
+    }
+    /**
      * @param $key
      * @param $value
      * @return void
