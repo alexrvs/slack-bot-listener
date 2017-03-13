@@ -37,6 +37,11 @@ class SlackBotListener{
     private $attachments = [];
 
     /**
+     * @var string $fallback
+     */
+    private $fallback;
+
+    /**
      * SlackBotListener constructor.
      * @param string $webhook
      * @param array $options
@@ -56,7 +61,7 @@ class SlackBotListener{
      */
     public function send(){
 
-        $message = new Message($this->text);
+        $message = new Message($this->text,$this->options);
         $request = new SlackBotRequest($this->webhook, $message);
         $this->callRequest($request);
         $this->reset();
@@ -68,23 +73,41 @@ class SlackBotListener{
      * @param $text
      * @return $this
      */
-
     public function text($text){
         $this->text = $text;
         return $this;
     }
 
-    public function toPerson($username){
+    /**
+     *
+     */
+    public function attach(){
+        array_push($this->options, $this->attachments);
+    }
 
+    /**
+     * @param $username
+     */
+    public function toPerson($username){
+        $this->options['username'] = $username;
     }
 
     /**
      * @param Attachment $attachment
      */
-
     public function attachment(Attachment $attachment){
 
         $this->attachments[] = $attachment->serialize();
+    }
+
+    /**
+     * @param $fallback
+     * @return Attachment
+     */
+
+    public function createAttachment($fallback){
+
+        return new Attachment($fallback);
     }
 
     /**

@@ -13,9 +13,14 @@ class Attachment implements Transferable{
      */
     private $attachment_options = [];
 
+    public function __construct($fallback)
+    {
+        $this->attachment_options['fallback'] = $fallback;
+    }
+
     public function serialize()
     {
-        return  serialize($this->attach);
+        return  $this->attachment_options;
     }
 
     /**
