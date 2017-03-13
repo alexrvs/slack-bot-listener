@@ -10,6 +10,7 @@
     "php-slackbot",
     "slack-bot-listener"
   ],
+
   "license" : "MIT",
   "type": "library",
   "authors":[
