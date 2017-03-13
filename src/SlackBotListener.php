@@ -79,10 +79,14 @@ class SlackBotListener{
     }
 
     /**
-     * Merge attachment array to global
+     * @param Attachment $attachment
+     * @return $this
      */
-    public function attach(){
-        array_push($this->options, $this->attachments);
+
+    public function attach(Attachment $attachment)
+    {
+        array_push($this->attachments, $attachment);
+        return $this;
     }
 
     /**
@@ -95,15 +99,6 @@ class SlackBotListener{
         return $this;
     }
 
-    /**
-     * @param Attachment $attachment
-     * @return $this
-     */
-    public function attachment(Attachment $attachment){
-
-        $this->attachments[] = $attachment->serialize();
-        return $this;
-    }
 
     /**
      * @param $fallback
