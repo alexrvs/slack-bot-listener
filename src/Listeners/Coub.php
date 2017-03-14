@@ -35,4 +35,8 @@ class Coub implements \SplSubject{
         // TODO: Implement notify() method.
     }
 
+    public function setCoub(){
+
+    }
+
 }

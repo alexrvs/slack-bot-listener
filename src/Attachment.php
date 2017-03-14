@@ -85,6 +85,33 @@ class Attachment implements Transferable{
     }
 
     /**
+     * @param $pretext
+     * @return $this
+     */
+
+    public function setPretext($pretext){
+        $this->applyOptions('pretext',$pretext);
+        return $this;
+    }
+
+    /**
+     * @param $title
+     * @return $this
+     */
+    public function setTitle($title){
+        $this->applyOptions('title',$title);
+        return $this;
+    }
+
+    /**
+     * @param $link
+     * @return $this
+     */
+    public function setTitleLink($link){
+        $this->applyOptions('title_link',$link);
+        return $this;
+    }
+    /**
      * @param $icon
      * @return $this
      */

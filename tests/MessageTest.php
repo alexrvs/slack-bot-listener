@@ -1,0 +1,37 @@
+<?php
+namespace alexandervas\slackbotlistener\tests;
+
+use PHPUnit\Framework\TestCase;
+use alexandervas\slackbotlistener\Message;
+
+class MessageTest extends TestCase{
+
+    public $message;
+    public $handler;
+    public $testText;
+    public $options = array();
+
+    public function setUp()
+    {
+        $this->testText = 'test message';
+        $this->message = new Message($this->testText);
+        $this->options = [
+            'icon_url' => 'http://someicon.com',
+            'thumb_url'=> 'https://a.slack-edge.com/ae57/img/slack_api_logo.png',
+            'image_url' => 'https://a.slack-edge.com/ae57/img/slack_api_logo.png'
+        ];
+    }
+
+    public function testMessage()
+    {
+        $text = 'test message';
+        $this->assertEquals(array('text'=>$text),$this->message->serialize());
+    }
+
+
+    public function testSerializeWithOptions(){
+        $message = new Message($this->testText,$this->options);
+        $this->assertEquals(array_merge(array('text' =>$this->testText)), $message->serialize());
+    }
+
+}
