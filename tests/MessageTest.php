@@ -9,11 +9,13 @@ class MessageTest extends TestCase{
     public $message;
     public $handler;
     public $testText;
+    public $emptyText;
     public $options = array();
 
     public function setUp()
     {
         $this->testText = 'test message';
+        $this->emptyText = '';
         $this->message = new Message($this->testText);
         $this->options = [
             'icon_url' => 'http://someicon.com',
@@ -22,7 +24,7 @@ class MessageTest extends TestCase{
         ];
     }
 
-    public function testMessage()
+    public function testSerializeMessage()
     {
         $text = 'test message';
         $this->assertEquals(array('text'=>$text),$this->message->serialize());
@@ -31,7 +33,20 @@ class MessageTest extends TestCase{
 
     public function testSerializeWithOptions(){
         $message = new Message($this->testText,$this->options);
-        $this->assertEquals(array_merge(array('text' =>$this->testText)), $message->serialize());
+        $this->assertEquals(array_merge(array('text' =>$this->testText),$this->options), $message->serialize());
     }
+
+    public function testCanCreateMessageObject(){
+
+        $this->assertInstanceOf('\alexandervas\slackbotlistener\Message',$this->message);
+    }
+
+    public function testEmptyMessage(){
+        $this->emptyText;
+        $emptyMessage = new Message($this->emptyText);
+        $this->assertEquals(array('text'=>''),$emptyMessage->serialize());
+    }
+
+
 
 }
