@@ -6,6 +6,7 @@ use alexandervas\slackbotlistener\Attachment;
 use alexandervas\slackbotlistener\Handlers\RequestHandler;
 use alexandervas\slackbotlistener\Message;
 use alexandervas\slackbotlistener\SlackBotRequest;
+use alexandervas\slackbotlistener\Exceptions\SlackRequestException;
 use PHPUnit\Framework\TestCase;
 
 class RequestTest extends TestCase{
@@ -83,4 +84,23 @@ class RequestTest extends TestCase{
         $this->assertEquals('payload={"text":"test Message","attachments":[{"fallback":"test Fallback"}]}',urldecode($payload));
     }
 
+
+    public function emptyMessageProvider(){
+        return [
+            [
+                new Message(NULL),
+                new Message('')
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider emptyMessageProvider
+     * @expectedException alexandervas\slackbotlistener\Exceptions\SlackRequestException;
+     */
+
+    public function testCanSendEmptyMessage(Message $message){
+
+        new SlackBotRequest('webhook.cos',$message);
+    }
 }
