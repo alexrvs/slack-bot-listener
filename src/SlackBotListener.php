@@ -37,9 +37,9 @@ class SlackBotListener{
     private $attachments = [];
 
     /**
-     * @var string $fallback
+     * @var SlackBotRequest $request
      */
-    private $fallback;
+    private $request;
 
     /**
      * SlackBotListener constructor.
@@ -65,8 +65,8 @@ class SlackBotListener{
         if(!empty($this->attachments)){
             array_map(array($message, 'attach'),$this->attachments);
         }
-        $request = new SlackBotRequest($this->webhook, $message);
-        $this->callRequest($request);
+        $this->request = new SlackBotRequest($this->webhook, $message);
+        $this->callRequest($this->request);
         $this->reset();
 
     }
@@ -137,5 +137,12 @@ class SlackBotListener{
         $this->attachments = [];
     }
 
+    /**
+     * @return SlackBotRequest
+     */
+
+    public function getRequest(){
+        return $this->request;
+    }
 
 }
