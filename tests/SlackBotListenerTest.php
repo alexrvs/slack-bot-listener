@@ -55,7 +55,7 @@ class SlackBotListenerTest extends TestCase{
     public function testCanSendManyOptionsForAttachment(){
         $this->slackbot->attach($this->slackbot->createAttachment('flallbackTest')
             ->setAuthor('alex','http://test.r','http://test.r/icon.gif')
-            ->setThumbUrl('fdkgjfkfdjgfd'))->text('Text Test')->send();
+            ->setThumbUrl('https://test.c/thumb.gif'))->text('Text Test')->send();
         $testRequest = urldecode($this->slackbot->getRequest()->body());
 
         $this->assertEquals('payload={"text":"Text Test","attachments":[{"fallback":"flallbackTest","author_name":"alex","author_link":"http:\/\/test.r","author_icon":"http:\/\/test.r\/icon.gif","thumb_url":"fdkgjfkfdjgfd"}]}',$testRequest);
