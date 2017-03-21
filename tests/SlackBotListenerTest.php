@@ -26,7 +26,7 @@ class SlackBotListenerTest extends TestCase{
     /**
      * @var string $webhook
      */
-    public $webhook = "https://hooks.slack.com/services/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";
+    public $webhook = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX";
 
     /**
      * @var array $options
