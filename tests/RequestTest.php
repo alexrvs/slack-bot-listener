@@ -9,6 +9,11 @@ use alexrvs\slackbotlistener\SlackBotRequest;
 use alexrvs\slackbotlistener\Exceptions\SlackRequestException;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class RequestTest
+ * @package alexrvs\slackbotlistener\tests
+ */
+
 class RequestTest extends TestCase{
 
     /**

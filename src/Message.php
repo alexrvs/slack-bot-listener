@@ -1,6 +1,11 @@
 <?php
 namespace alexrvs\slackbotlistener;
 
+/**
+ * Class Message
+ * @package alexrvs\slackbotlistener
+ */
+
 class Message implements Transferable{
 
     /**

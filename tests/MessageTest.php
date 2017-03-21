@@ -4,6 +4,10 @@ namespace alexrvs\slackbotlistener\tests;
 use PHPUnit\Framework\TestCase;
 use alexrvs\slackbotlistener\Message;
 
+/**
+ * Class MessageTest
+ * @package alexrvs\slackbotlistener\tests
+ */
 class MessageTest extends TestCase{
 
     public $message;

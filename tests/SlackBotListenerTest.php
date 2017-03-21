@@ -6,6 +6,11 @@ use alexrvs\slackbotlistener\SlackBotListener;
 use alexrvs\slackbotlistener\SlackBotRequest;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class SlackBotListenerTest
+ * @package alexrvs\slackbotlistener\tests
+ */
+
 class SlackBotListenerTest extends TestCase{
 
     /**

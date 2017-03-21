@@ -1,6 +1,10 @@
 <?php
 namespace alexrvs\slackbotlistener;
 
+/**
+ * Class Attachment
+ * @package alexrvs\slackbotlistener
+ */
 class Attachment implements Transferable{
 
     /**

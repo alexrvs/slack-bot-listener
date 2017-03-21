@@ -4,6 +4,10 @@ namespace alexrvs\slackbotlistener\tests;
 use alexrvs\slackbotlistener\Attachment;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class AttachmentTest
+ * @package alexrvs\slackbotlistener\tests
+ */
 class AttachmentTest extends TestCase{
 
     /**
