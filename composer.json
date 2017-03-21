@@ -23,7 +23,8 @@
 
   "require":{
     "php": ">=5.3",
-    "cocur/background-process": "^0.7.0"
+    "cocur/background-process": "^0.7.0",
+    "guzzlehttp/guzzle": "~6.0"
   },
 
   "require-dev":{
