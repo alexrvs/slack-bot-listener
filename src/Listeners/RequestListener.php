@@ -1,18 +1,31 @@
 <?php
- namespace alexrvs\slackbotlistener\Listeners;
- use alexrvs\slackbotlistener\Handlers\CurlRequest;
 
- /**
-  * Interface RequestListener
-  * @package alexrvs\slackbotlistener
-  */
+namespace alexrvs\slackbotlistener\Listeners;
 
- interface RequestListener{
+use GuzzleHttp\Client;
 
-     public function call(CurlRequest $curlRequest);
+/**
+ * Interface RequestListener
+ * @package alexrvs\slackbotlistener
+ */
 
-     public function request();
+interface RequestListener{
 
-     public function response();
+    /**
+     * @param Client $client
+     * @return mixed
+     */
 
- }
+    public function call(Client $client);
+
+    /**
+     * @return mixed
+     */
+    public function request();
+
+    /**
+     * @return mixed
+     */
+    public function response();
+
+}

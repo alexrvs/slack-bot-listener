@@ -2,6 +2,7 @@
 namespace  alexrvs\slackbotlistener\Listeners;
 
 use alexrvs\slackbotlistener\Handlers\CurlRequest;
+use alexrvs\slackbotlistener\SlackBotRequest;
 
 /**
  * Class GitHub
@@ -14,13 +15,19 @@ class GitHub implements RequestListener {
      */
     private $curlRequest;
 
+
+    /**
+     * @var SlackBotRequest $request
+     */
+    private $request;
     /**
      * GitHub constructor.
      * @param CurlRequest $curlRequest
      */
-    public function __construct(CurlRequest $curlRequest)
+    public function __construct(CurlRequest $curlRequest, SlackBotRequest $request)
     {
         $this->curlRequest = $curlRequest;
+        $this->request = $request;
     }
 
     /**
@@ -30,7 +37,8 @@ class GitHub implements RequestListener {
 
     public function call(CurlRequest $curlRequest)
     {
-        $request = $curlRequest->call($curlRequest);
+
+        $request = $curlRequest->call($this->request);
 
         return $request;
     }

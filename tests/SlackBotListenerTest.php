@@ -21,12 +21,12 @@ class SlackBotListenerTest extends TestCase{
     /**
      * @var SlackBotRequest $request
      */
-    public $request;
+    private $request;
 
     /**
      * @var string $webhook
      */
-    public $webhook = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX";
+    private $webhook = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX";
 
     /**
      * @var array $options
@@ -38,10 +38,12 @@ class SlackBotListenerTest extends TestCase{
      */
     public $message;
 
+
     public function setUp()
     {
         $this->slackbot = new SlackBotListener($this->webhook);
         $this->message = 'test message';
+        $this->request = new SlackBotRequest($this->message, $this->webhook);
     }
 
     public function testCanSendMessage(){
