@@ -2,7 +2,7 @@
 namespace  alexrvs\slackbotlistener\Listeners;
 
 use alexrvs\slackbotlistener\Handlers\CurlRequest;
-use alexrvs\slackbotlistener\SlackBotRequest;
+use GuzzleHttp\Client;
 
 /**
  * Class GitHub
@@ -15,32 +15,23 @@ class GitHub implements RequestListener {
      */
     private $curlRequest;
 
-
     /**
-     * @var SlackBotRequest $request
+     * @var Client $request
      */
     private $request;
-    /**
-     * GitHub constructor.
-     * @param CurlRequest $curlRequest
-     */
-    public function __construct(CurlRequest $curlRequest, SlackBotRequest $request)
-    {
-        $this->curlRequest = $curlRequest;
-        $this->request = $request;
-    }
 
     /**
-     * @param CurlRequest $curlRequest
-     * @return mixed
+     * @var string $method
+     */
+    private  $method;
+
+    /**
+     * @param Client $client
      */
 
-    public function call(CurlRequest $curlRequest)
+    public function call(Client $client)
     {
-
-        $request = $curlRequest->call($this->request);
-
-        return $request;
+        $this->request = $client;
     }
 
     public function request()
@@ -50,6 +41,36 @@ class GitHub implements RequestListener {
 
     public function response()
     {
-        // TODO: Implement response() method.
+        return $this->request->getBody();
+    }
+
+    public function get()
+    {
+        $this->request->get($this->method);
+        return $this;
+    }
+
+    /**
+     * @param string $method
+     * @return $this
+     */
+    public function setMethod($method)
+    {
+        $this->method = $method;
+        return $this;
+    }
+
+    /**
+     * @param string $username
+     * @param mixed $password
+     */
+    public function setAuth($username, $password)
+    {
+        $this->request = $this->request->get($this->method)->setAuth($username, $password);
+    }
+
+    public function send()
+    {
+        $this->request->send();
     }
 }
