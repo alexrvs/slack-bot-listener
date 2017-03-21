@@ -1,8 +1,8 @@
 <?php
-namespace alexandervas\slackbotlistener\tests;
+namespace alexrvs\slackbotlistener\tests;
 
 use PHPUnit\Framework\TestCase;
-use alexandervas\slackbotlistener\Message;
+use alexrvs\slackbotlistener\Message;
 
 class MessageTest extends TestCase{
 
@@ -38,7 +38,7 @@ class MessageTest extends TestCase{
 
     public function testCanCreateMessageObject(){
 
-        $this->assertInstanceOf('\alexandervas\slackbotlistener\Message',$this->message);
+        $this->assertInstanceOf('\alexrvs\slackbotlistener\Message',$this->message);
     }
 
     public function testEmptyMessage(){

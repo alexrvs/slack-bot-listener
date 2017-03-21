@@ -1,10 +1,10 @@
 <?php
-namespace alexandervas\slackbotlistener\Exceptions;
+namespace alexrvs\slackbotlistener\Exceptions;
 
 use Exception;
 /**
  * Class SlackBotListenerExceptions
- * @package alexandervas\slackbotlistener\Exceptions
+ * @package alexrvs\slackbotlistener\Exceptions
  */
 
 class SlackBotListenerException extends Exception{

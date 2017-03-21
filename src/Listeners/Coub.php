@@ -1,5 +1,5 @@
 <?php
-
+namespace alexrvs\slackbotlistener\Listeners;
 /**
  * Class Coub
  */

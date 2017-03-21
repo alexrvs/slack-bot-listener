@@ -1,5 +1,5 @@
 <?php
-namespace alexandervas\slackbotlistener\Listeners;
+namespace alexrvs\slackbotlistener\Listeners;
 
 use SplSubject;
 

@@ -1,9 +1,9 @@
 <?php
-namespace alexandervas\slackbotlistener;
+namespace alexrvs\slackbotlistener;
 
 /**
  * Interface Transferable
- * @package alexandervas\slackbotlistener
+ * @package alexrvs\slackbotlistener
  */
 
 interface Transferable{

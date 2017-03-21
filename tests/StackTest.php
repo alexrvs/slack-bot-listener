@@ -1,11 +1,11 @@
 <?php
-namespace alexandervas\slackbotlistener\tests;
+namespace alexrvs\slackbotlistener\tests;
 
 use PHPUnit\Framework\TestCase;
 
 /**
  * Class StackTest
- * @package alexandervas\slackbotlistener\tests
+ * @package alexrvs\slackbotlistener\tests
  */
 class StackTest extends TestCase{
 

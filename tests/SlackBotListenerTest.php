@@ -1,9 +1,9 @@
 <?php
-namespace alexandervas\slackbotlistener\tests;
+namespace alexrvs\slackbotlistener\tests;
 
-use alexandervas\slackbotlistener\Message;
-use alexandervas\slackbotlistener\SlackBotListener;
-use alexandervas\slackbotlistener\SlackBotRequest;
+use alexrvs\slackbotlistener\Message;
+use alexrvs\slackbotlistener\SlackBotListener;
+use alexrvs\slackbotlistener\SlackBotRequest;
 use PHPUnit\Framework\TestCase;
 
 class SlackBotListenerTest extends TestCase{

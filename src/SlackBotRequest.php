@@ -1,11 +1,11 @@
 <?php
-namespace alexandervas\slackbotlistener;
+namespace alexrvs\slackbotlistener;
 
-use alexandervas\slackbotlistener\Exceptions\SlackBotListenerException;
+use alexrvs\slackbotlistener\Exceptions\SlackBotListenerException;
 
 /**
  * Class SlackBotRequest
- * @package alexandervas\slackbotlistener
+ * @package alexrvs\slackbotlistener
  */
 class SlackBotRequest{
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace alexandervas\slackbotlistener\Handlers;
+namespace alexrvs\slackbotlistener\Handlers;
 
-use alexandervas\slackbotlistener\SlackBotRequest;
+use alexrvs\slackbotlistener\SlackBotRequest;
 
 interface RequestHandler{
 

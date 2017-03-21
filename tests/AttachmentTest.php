@@ -1,7 +1,7 @@
 <?php
-namespace alexandervas\slackbotlistener\tests;
+namespace alexrvs\slackbotlistener\tests;
 
-use alexandervas\slackbotlistener\Attachment;
+use alexrvs\slackbotlistener\Attachment;
 use PHPUnit\Framework\TestCase;
 
 class AttachmentTest extends TestCase{

@@ -1,5 +1,5 @@
 <?php
-namespace alexandervas\slackbotlistener;
+namespace alexrvs\slackbotlistener;
 
 class Attachment implements Transferable{
 

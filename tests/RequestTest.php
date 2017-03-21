@@ -1,12 +1,12 @@
 <?php
 
-namespace alexandervas\slackbotlistener\tests;
+namespace alexrvs\slackbotlistener\tests;
 
-use alexandervas\slackbotlistener\Attachment;
-use alexandervas\slackbotlistener\Handlers\RequestHandler;
-use alexandervas\slackbotlistener\Message;
-use alexandervas\slackbotlistener\SlackBotRequest;
-use alexandervas\slackbotlistener\Exceptions\SlackRequestException;
+use alexrvs\slackbotlistener\Attachment;
+use alexrvs\slackbotlistener\Handlers\RequestHandler;
+use alexrvs\slackbotlistener\Message;
+use alexrvs\slackbotlistener\SlackBotRequest;
+use alexrvs\slackbotlistener\Exceptions\SlackRequestException;
 use PHPUnit\Framework\TestCase;
 
 class RequestTest extends TestCase{
@@ -96,7 +96,7 @@ class RequestTest extends TestCase{
 
     /**
      * @dataProvider emptyMessageProvider
-     * @expectedException alexandervas\slackbotlistener\Exceptions\SlackRequestException;
+     * @expectedException alexrvs\slackbotlistener\Exceptions\SlackRequestException;
      */
 
     public function testCanSendEmptyMessage(Message $message){

@@ -1,10 +1,10 @@
 <?php
-namespace alexandervas\slackbotlistener\Handlers;
-use alexandervas\slackbotlistener\SlackBotRequest;
+namespace alexrvs\slackbotlistener\Handlers;
+use alexrvs\slackbotlistener\SlackBotRequest;
 
 /**
  * Class CurlRequest
- * @package alexandervas\slackbotlistener\Handlers
+ * @package alexrvs\slackbotlistener\Handlers
  */
 
 class CurlRequest implements RequestHandler{
