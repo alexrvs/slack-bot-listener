@@ -42,7 +42,7 @@ use alexrvs\slackbotlistener\SlackBotListener;
 
 Attachments:
 
-```
+```php
 $bot->attach($bot->createAttachment('fallback')
                                 ->setText('Text Attachment')
                                 ->setImageUrl('https://a.slack-edge.com/ae57/img/slack_api_logo.png')
