@@ -21,7 +21,7 @@ class Message implements Transferable{
     /**
      * @var array $attachments
      */
-    private $attachments;
+    private $attachments = array();
     /**
      * Message constructor.
      * @param string $text
@@ -37,7 +37,6 @@ class Message implements Transferable{
      * @param Attachment $attachment
      */
     public function attach(Attachment $attachment){
-
         array_push($this->attachments, $attachment->serialize());
     }
 
