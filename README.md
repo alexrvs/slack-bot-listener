@@ -28,15 +28,29 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?php
+
 require(__DIR__ . '/vendor/autoload.php');
 
-use alexandervas\slackbotlistener\SlackBotListener;
+use alexrvs\slackbotlistener\SlackBotListener;
 
     $webhook = "https://hooks.slack.com/services/your/incoming/hook";
     
     $slackbot = new SlackBotListener($webhook);
 
     $slackbot->text('test')->send();
-	
- ?>```
+```
+
+Attachments:
+
+```
+$bot->attach($bot->createAttachment('fallback')
+                                ->setText('Text Attachment')
+                                ->setImageUrl('https://a.slack-edge.com/ae57/img/slack_api_logo.png')
+                                ->setThumbUrl('https://a.slack-edge.com/ae57/img/slack_api_logo.png')
+                                ->setFooterIcon('https://a.slack-edge.com/ae57/img/slack_api_logo.png')
+                                ->setAuthor('Bobby Tables','http://flickr.com/bobby/','http://flickr.com/icons/bobby.jpg')
+    )->text('test text')->send();
+
+```
+ 
+ 
