@@ -43,6 +43,9 @@ use alexrvs\slackbotlistener\SlackBotListener;
 Attachments:
 
 ```php
+$webhook = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX";
+$bot = new SlackBotListener($webhook);
+
 $bot->attach($bot->createAttachment('fallback')
                                 ->setText('Text Attachment')
                                 ->setImageUrl('https://a.slack-edge.com/ae57/img/slack_api_logo.png')
