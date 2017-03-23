@@ -13,7 +13,7 @@ class RtmSlackResponse implements RtmResponseInterface, \JsonSerializable{
     /**
      * @var string $body
      */
-    protected $body;
+    public $body;
 
     /**
      * @var string $responseCode
