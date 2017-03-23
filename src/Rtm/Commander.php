@@ -437,7 +437,7 @@
      /**
       * @var string $baseApi
       */
-     protected static $baseApi = 'https://api.slack.com';
+     protected static $baseApi = 'https://slack.com/api';
 
 
      /**
