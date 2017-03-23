@@ -6,7 +6,7 @@ use alexrvs\slackbotlistener\Handlers\RtmResponseInterface;
 class RtmSlackResponse implements RtmResponseInterface, \JsonSerializable{
 
     /**
-     * @var string $header
+     * @var array $header
      */
     protected $header;
 
@@ -26,10 +26,10 @@ class RtmSlackResponse implements RtmResponseInterface, \JsonSerializable{
      * @param $body
      * @param $responseCode
      */
-    public function __construct( $body, $header, $responseCode)
+    public function __construct( $body, array $header, $responseCode)
     {
         $this->header = $header;
-        $this->body = json_encode($body);
+        $this->body = json_decode($body,true);
         $this->responseCode = $responseCode;
     }
 
