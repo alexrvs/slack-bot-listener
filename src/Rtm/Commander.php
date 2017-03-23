@@ -1,6 +1,7 @@
 <?php
 namespace alexrvs\slackbotlistener\Rtm;
 
+use alexrvs\slackbotlistener\Handlers\CurlRequest;
 use InvalidArgumentException;
 /**
  * Class Commander
@@ -416,13 +417,21 @@ class Commander implements RtmRequestInterface {
      */
     protected $token;
 
+
+    /**
+     * @var CurlRequest $request
+     */
+    protected $request;
+
     /**
      * Commander constructor.
      * @param $token
+     * @param CurlRequest $request
      */
-    public function __construct($token)
+    public function __construct($token, CurlRequest $request)
     {
         $this->token = $token;
+        $this->request = $request;
     }
 
     /**
@@ -446,12 +455,12 @@ class Commander implements RtmRequestInterface {
         $command = self::$commands[$command];
 
         if ($command['token'])
-            $parameters = array_merge($params, ['token' => $this->token]);
+            $params = array_merge($params, ['token' => $this->token]);
 
         if (isset($command['format']))
             foreach ($command['format'] as $format)
-                if (isset($parameters[$format]))
-                    $parameters[$format] = self::format($params[$format]);
+                if (isset($params[$format]))
+                    $params[$format] = self::format($params[$format]);
 
         $headers = [];
         if (isset($command['headers']))
@@ -460,9 +469,9 @@ class Commander implements RtmRequestInterface {
         $url = self::$baseApi . $command['endpoint'];
 
         if (isset($command['post']) && $command['post'])
-            return $this->interactor->post($url, [], $params, $headers);
+            return $this->request->post($url, [], $params, $headers);
 
-        return $this->interactor->get($url, $params, $headers);
+        return $this->request->get($url, $params, $headers);
     }
 
     /**
